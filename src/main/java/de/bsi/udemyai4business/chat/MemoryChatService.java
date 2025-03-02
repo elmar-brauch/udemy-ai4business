@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemoryChatService {
 
-    private ChatClient chatClient;
+    private final ChatClient chatClient;
 
     public MemoryChatService(ChatModel llm) {
         var chatMemory = new InMemoryChatMemory();

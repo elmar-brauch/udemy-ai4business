@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SystemPromptChatService {
 
-    private ChatClient chatClient;
+    private final ChatClient chatClient;
 
     private final static String SYSTEM_PROMPT = """
             Agiere als ein Botschafter der Deutschen Telekom AG.

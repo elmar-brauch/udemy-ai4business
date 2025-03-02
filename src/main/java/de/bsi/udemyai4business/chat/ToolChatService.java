@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ToolChatService {
 
-    private ChatClient chatClient;
+    private final ChatClient chatClient;
 
     public ToolChatService(ChatModel llm) {
         this.chatClient = ChatClient.builder(llm)
