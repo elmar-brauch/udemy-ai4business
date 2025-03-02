@@ -1,13 +1,11 @@
 package de.bsi.udemyai4business.tool;
 
-import org.springframework.ai.tool.annotation.Tool;
-import org.springframework.ai.tool.annotation.ToolParam;
 import org.springframework.util.StringUtils;
 
 public class CipherTool {
 
-    @Tool(description = "Encrypt a text using a self-invented cipher.")
-    public String encrypt(@ToolParam(description = "Text to be encrypted.") String text) {
+    // TODO Convert this in a tool (e.g. with annotations)
+    public String encrypt(String text) {
         if (!StringUtils.hasText(text))
             return "NA";
         return text.toLowerCase()

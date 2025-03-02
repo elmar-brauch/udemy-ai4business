@@ -8,16 +8,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class ParsingChatService {
 
-    private final ChatClient chatClient;
+    private final ChatClient chatClient = null;
 
     public ParsingChatService(ChatModel llm) {
-        this.chatClient = ChatClient.builder(llm).build();
+        // TODO Create ChatClient.
     }
 
-    // Adding a system prompt to define that the task is to parse a Customer object from given text
-    // and describing the nature of the given text improves this AI service.
     public Customer identifyCustomer(String text) {
-        return chatClient.prompt(text).call().entity(Customer.class);
+        // TODO Use ChatClient to parse text in Customer object.
+        return null;
     }
 
 }

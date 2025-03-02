@@ -9,19 +9,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class MemoryChatService {
 
-    private final ChatClient chatClient;
+    private final ChatClient chatClient = null;
 
     public MemoryChatService(ChatModel llm) {
-        var chatMemory = new InMemoryChatMemory();
-        var chatMemoryAdvisor = new MessageChatMemoryAdvisor(chatMemory, "conversation-id", 3);
-
-        this.chatClient = ChatClient.builder(llm)
-                .defaultAdvisors(chatMemoryAdvisor)
-                .build();
+        // TODO Create ChatClient with InMemoryChatMemory and MessageChatMemoryAdvisor.
     }
 
     public String chat(String question) {
-        return chatClient.prompt(question).call().content();
+        // TODO Use ChatClient to interact with LLM.
+        return null;
     }
 
 }

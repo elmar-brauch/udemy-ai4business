@@ -92,6 +92,8 @@ class ChatServiceTest {
         assertEquals("Bonn", customerData.getCity());
     }
 
+    // TODO Bonus exercise: Use an AI to test, if SystemPromptChatService gives good answers.
+
     private void checkChat(String userMessage, Object answer) {
         Logger log = LoggerFactory.getLogger(ChatServiceTest.class);
         log.info("\nUSER: {}\nAI RESPONSE: {}", userMessage, answer);

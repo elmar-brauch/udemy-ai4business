@@ -7,14 +7,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class BasicChatService {
 
-    private final ChatClient chatClient;
+    private final ChatClient chatClient = null;
 
     public BasicChatService(ChatModel llm) {
-        this.chatClient = ChatClient.builder(llm).build();
+        // TODO Create ChatClient.
     }
 
     public String ask(String question) {
-        return chatClient.prompt(question).call().content();
+        // TODO Use ChatClient to interact with LLM.
+        return null;
     }
 
 }
