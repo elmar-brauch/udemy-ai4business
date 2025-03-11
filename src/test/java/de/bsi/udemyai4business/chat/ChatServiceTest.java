@@ -1,5 +1,6 @@
 package de.bsi.udemyai4business.chat;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +13,13 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @ActiveProfiles("secret")
 class ChatServiceTest {
+
+    @BeforeAll
+    static void setProxy() {
+        // Set a proxy here, if needed to connect against LLM service.
+        //System.setProperty("http.proxyHost", "proxy.de");
+        //System.setProperty("http.proxyPort", "8080");
+    }
 
     @Test
     void askQuestionWithoutContext(@Autowired BasicChatService aiChat) {
