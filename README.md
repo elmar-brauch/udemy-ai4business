@@ -6,6 +6,8 @@ As preparation to start the exercises, you have to:
   * The required dependencies can be found in pom.xml (you need just one spring-ai-azure-openai or spring-ai-ollama or any other to connect to a different AI service)
   * Connection to LLM service has to be defined in application.properties
 * Documentation about Spring AI is here https://docs.spring.io/spring-ai/reference/
+* To build this Maven project you need internet connection - set a proxy in Maven config if needed. Build the project with: mvn install
+* To connect against Azure OpenAI you need internet connection - set a proxy in ChatServiceTest.java if needed.
 
 ## Exercise 1: Send question to LLM
 Solution can be found in BasicChatService.java
