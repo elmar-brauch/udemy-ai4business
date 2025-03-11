@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ToolChatService {
 
-    private final ChatClient chatClient = null;
+    private ChatClient chatClient;
 
     public ToolChatService(ChatModel llm) {
         // TODO Create ChatClient, which uses CipherTool.

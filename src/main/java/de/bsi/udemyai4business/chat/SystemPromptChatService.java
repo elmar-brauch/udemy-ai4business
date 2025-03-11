@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SystemPromptChatService {
 
-    private final ChatClient chatClient = null;
+    private ChatClient chatClient;
 
     private final static String SYSTEM_PROMPT = """
             TODO: Define system prompt here.

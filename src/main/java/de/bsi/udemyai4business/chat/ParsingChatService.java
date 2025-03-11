@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ParsingChatService {
 
-    private final ChatClient chatClient = null;
+    private ChatClient chatClient;
 
     public ParsingChatService(ChatModel llm) {
         // TODO Create ChatClient.
