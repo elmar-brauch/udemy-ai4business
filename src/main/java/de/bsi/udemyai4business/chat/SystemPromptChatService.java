@@ -9,7 +9,7 @@ public class SystemPromptChatService {
 
     private ChatClient chatClient;
 
-    private final static String SYSTEM_PROMPT = """
+    private static final String SYSTEM_PROMPT = """
             TODO: Define system prompt here.
             """;
 

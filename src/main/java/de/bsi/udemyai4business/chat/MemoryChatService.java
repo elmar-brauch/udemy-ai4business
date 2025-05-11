@@ -10,7 +10,7 @@ public class MemoryChatService {
     private ChatClient chatClient;
 
     public MemoryChatService(ChatModel llm) {
-        // TODO Create ChatClient with InMemoryChatMemory and MessageChatMemoryAdvisor.
+        // TODO Create ChatClient with MessageWindowChatMemory and MessageChatMemoryAdvisor.
     }
 
     public String chat(String question) {
