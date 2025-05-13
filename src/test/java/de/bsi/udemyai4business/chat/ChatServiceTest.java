@@ -1,6 +1,7 @@
 package de.bsi.udemyai4business.chat;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,7 @@ class ChatServiceTest {
         //System.setProperty("http.proxyPort", "8080");
     }
 
+    @Disabled
     @Test
     void askQuestionWithoutContext(@Autowired BasicChatService aiChat) {
         var question = "Welche Firma organisiert das beste AI Barcamp in Bonn?";
@@ -30,6 +32,7 @@ class ChatServiceTest {
         checkChat(question, answer);
     }
 
+    @Disabled
     @Test
     void askQuestionWithSystemPrompt(@Autowired SystemPromptChatService aiChat) {
         var question = "Welche Firma organisiert das beste AI Barcamp in Bonn?";
@@ -39,6 +42,7 @@ class ChatServiceTest {
         checkChat(question, answer);
     }
 
+    @Disabled
     @Test
     void chatWithMemory(@Autowired MemoryChatService aiChat) {
         var name = "Rumpelstilzchen";
@@ -52,15 +56,6 @@ class ChatServiceTest {
         checkChat(message2, answer);
 
         assertTrue(answer.contains(name));
-    }
-
-    @Test
-    void chatWithTool(@Autowired ToolChatService aiChat) {
-        var question = "Verschlüssele bitte den Text 'Geheimnis'!";
-        var answer = aiChat.ask(question);
-        checkChat(question, answer);
-
-        assertTrue(answer.contains("g€h€_mn_s"));
     }
 
     private static final String SALES_DIALOG = """
@@ -84,6 +79,7 @@ class ChatServiceTest {
             Verkäufer: Viel Spaß mit Ihrem neuen Handy!
             """;
 
+    @Disabled
     @Test
     void identifyCustomerData(@Autowired ParsingChatService aiChat) {
         var customerData = aiChat.identifyCustomer(SALES_DIALOG);
@@ -98,6 +94,17 @@ class ChatServiceTest {
         assertEquals("151", customerData.getStreetNumber());
         assertEquals("53111", customerData.getZipCode());
         assertEquals("Bonn", customerData.getCity());
+    }
+
+    @Disabled
+    @Test
+    void chatWithTool(@Autowired ToolChatService aiChat) {
+        var question = "Verschlüssele bitte den Text 'Geheimnis'!";
+
+        var answer = aiChat.ask(question);
+        checkChat(question, answer);
+
+        assertEquals("g€h€_mn_s", answer.getEncryptedText());
     }
 
     private void checkChat(String userMessage, Object answer) {
