@@ -1,6 +1,7 @@
 package de.bsi.udemyai4business.chat;
 
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,6 +11,12 @@ import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Every Test is the starting point for a new exercise.
+ * The test uses a class (Spring bean) with incomplete implementation.
+ * Implement the missing parts / methods by using Spring AI.
+ * The class to be changed is injected in every test with Autowired annotation.
+ */
 @SpringBootTest
 @ActiveProfiles("secret")
 class ChatServiceTest {
@@ -21,6 +28,7 @@ class ChatServiceTest {
         //System.setProperty("http.proxyPort", "8080");
     }
 
+    @Disabled
     @Test
     void askQuestionWithoutContext(@Autowired BasicChatService aiChat) {
         var question = "Welche Firma organisiert das beste AI Barcamp in Bonn?";
@@ -30,6 +38,7 @@ class ChatServiceTest {
         checkChat(question, answer);
     }
 
+    @Disabled
     @Test
     void askQuestionWithSystemPrompt(@Autowired SystemPromptChatService aiChat) {
         var question = "Welche Firma organisiert das beste AI Barcamp in Bonn?";
@@ -39,6 +48,9 @@ class ChatServiceTest {
         checkChat(question, answer);
     }
 
+    // TODO Bonus exercise: Figure out how many tokens are consumed by OpenAI LLM.
+
+    @Disabled
     @Test
     void chatWithMemory(@Autowired MemoryChatService aiChat) {
         var name = "Rumpelstilzchen";
@@ -52,15 +64,6 @@ class ChatServiceTest {
         checkChat(message2, answer);
 
         assertTrue(answer.contains(name));
-    }
-
-    @Test
-    void chatWithTool(@Autowired ToolChatService aiChat) {
-        var question = "Verschlüssele bitte den Text 'Geheimnis'!";
-        var answer = aiChat.ask(question);
-        checkChat(question, answer);
-
-        assertTrue(answer.contains("g€h€_mn_s"));
     }
 
     private static final String SALES_DIALOG = """
@@ -84,6 +87,7 @@ class ChatServiceTest {
             Verkäufer: Viel Spaß mit Ihrem neuen Handy!
             """;
 
+    @Disabled
     @Test
     void identifyCustomerData(@Autowired ParsingChatService aiChat) {
         var customerData = aiChat.identifyCustomer(SALES_DIALOG);
@@ -100,6 +104,18 @@ class ChatServiceTest {
         assertEquals("Bonn", customerData.getCity());
     }
 
+    @Disabled
+    @Test
+    void chatWithTool(@Autowired ToolChatService aiChat) {
+        var question = "Verschlüssele bitte den Text 'Geheimnis'!";
+
+        var answer = aiChat.ask(question);
+        checkChat(question, answer);
+
+        assertEquals("g€h€_mn_s", answer.getEncryptedText());
+    }
+
+    // TODO Bonus exercise: Use Ollama and llama3.2 to solve the exercises. chatWithTool will require good system prompt.
     // TODO Bonus exercise: Use an AI to test, if SystemPromptChatService gives good answers.
 
     private void checkChat(String userMessage, Object answer) {

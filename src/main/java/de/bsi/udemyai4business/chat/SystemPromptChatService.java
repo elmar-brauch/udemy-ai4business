@@ -10,7 +10,7 @@ public class SystemPromptChatService {
     private ChatClient chatClient;
 
     private static final String SYSTEM_PROMPT = """
-            TODO: Define system prompt here.
+            TODO: Define system prompt here, so that the answer is in different style than in previous exercise.
             """;
 
     public SystemPromptChatService(ChatModel llm) {
