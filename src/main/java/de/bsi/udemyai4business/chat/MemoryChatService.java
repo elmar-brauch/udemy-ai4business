@@ -13,7 +13,7 @@ public class MemoryChatService {
 
     public MemoryChatService(ChatModel llm) {
         var chatMemory = MessageWindowChatMemory.builder().maxMessages(3).build();
-        var chatMemoryAdvisor = new MessageChatMemoryAdvisor(chatMemory);
+        var chatMemoryAdvisor = MessageChatMemoryAdvisor.builder(chatMemory).build();
 
         this.chatClient = ChatClient.builder(llm)
                 .defaultAdvisors(chatMemoryAdvisor)
