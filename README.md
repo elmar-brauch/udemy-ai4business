@@ -37,6 +37,7 @@ Solution can be found in ToolChatService.java in master branch.
 ## MCP Exercise: Extend GitHub Copilot with Jira-ID generation by using MCP
 Define a tool, which is offered by this Spring Boot application acting as MCP Server.<br>
 Setup ToolCallbackProvider Bean in this Spring Boot application.<br>
+Implement TODOs defined in classes inside "mcp" package.<br>
 Configure GitHub Copilot (Agent Mode) as MCP Client like this:
 ```json
 {
@@ -47,3 +48,5 @@ Configure GitHub Copilot (Agent Mode) as MCP Client like this:
     }
   }
 }
+```
+This fits to config-values defined in application.properties.
