@@ -5,17 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.3</version>
+        <version>3.5.11</version>
     </parent>
     <groupId>de.bsi</groupId>
     <artifactId>udemy-ai4business</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>udemy-ai4business</name>
     <description>udemy-ai4business</description>
 
     <properties>
-        <java.version>21</java.version>
-        <spring-ai.version>1.0.0</spring-ai.version>
+        <java.version>25</java.version>
+        <spring-ai.version>1.1.2</spring-ai.version>
     </properties>
     <dependencies>
         <dependency>
