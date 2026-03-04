@@ -18,17 +18,13 @@ public class RagChatService {
     private final ChatClient chatClient;
 
     public RagChatService(ChatModel llm, EmbeddingModel embeddingModel) {
-        VectorStore vectorStore = createAndFillVectorStore(embeddingModel);
-        QuestionAnswerAdvisor ragAdvisor = QuestionAnswerAdvisor.builder(vectorStore)
-                .searchRequest(SearchRequest.builder().topK(1).build())
-                .build();
-
-        this.chatClient = ChatClient.builder(llm)
-                .defaultAdvisors(ragAdvisor)
-                .build();
+        VectorStore inMemoryVectorStore = createAndFillVectorStore(embeddingModel);
+        // TODO Setup QuestionAnswerAdvisor to read documents from inMemoryVectorStore and use it in ChatClient.
+        this.chatClient = ChatClient.builder(llm).build();
     }
 
     public String chat(String question) {
+        // No change here needed.
         return chatClient.prompt(question).call().content();
     }
 

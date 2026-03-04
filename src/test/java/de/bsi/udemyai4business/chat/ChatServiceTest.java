@@ -12,6 +12,12 @@ import org.springframework.test.context.ActiveProfiles;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Every Test is the starting point for a new exercise.
+ * The test uses a class (Spring bean) with incomplete implementation.
+ * Implement the missing parts / methods by using Spring AI.
+ * The class to be changed is injected in every test with Autowired annotation.
+ */
 @SpringBootTest
 @ActiveProfiles("secret")
 class ChatServiceTest {
@@ -42,6 +48,8 @@ class ChatServiceTest {
 
         checkChat(question, answer);
     }
+
+    // TODO Bonus exercise: Figure out how many tokens are consumed by OpenAI LLM.
 
     @Disabled
     @Test
@@ -107,6 +115,9 @@ class ChatServiceTest {
 
         assertEquals("g€h€_mn_s", answer.getEncryptedText());
     }
+
+    // TODO Bonus exercise: Use Ollama and llama3.2 to solve the exercises. chatWithTool will require good system prompt.
+    // TODO Bonus exercise: Use an AI to test, if SystemPromptChatService gives good answers.
 
     @Disabled
     @Test

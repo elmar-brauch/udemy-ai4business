@@ -8,11 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class McpServerConfig {
 
-    @Bean
-    public ToolCallbackProvider jiraTools(JiraMessageService jiraMessageService) {
-        return MethodToolCallbackProvider.builder()
-                .toolObjects(jiraMessageService)
-                .build();
-    }
+    // TODO a Bean of type ToolCallbackProvider defines tools provided by this MCP server.
 
 }
