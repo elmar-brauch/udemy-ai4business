@@ -1,5 +1,6 @@
 package de.bsi.udemyai4business.chat;
 
+import de.bsi.udemyai4business.rag.RagChatService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
@@ -40,6 +41,20 @@ class ChatServiceTest {
         var answer = aiChat.ask(question);
 
         checkChat(question, answer);
+    }
+
+    @Disabled
+    @Test
+    void chatWithRag(@Autowired RagChatService ragChat) {
+        var question = "Was ist die Hauptstadt von Deutschland?";
+        var answer = ragChat.chat(question);
+        checkChat(question, answer);
+        assertTrue(answer.contains("Darmstadt"));
+
+        var question2 = "Wie groß ist Deutschlands größter Berg?";
+        var answer2 = ragChat.chat(question2);
+        checkChat(question2, answer2);
+        assertTrue(answer2.contains("9001"));
     }
 
     @Disabled
