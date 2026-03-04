@@ -13,26 +13,32 @@ As preparation to start the exercises, you have to:
 All exercises start by opening file ChatServiceTest.java.<br>
 ChatServiceTest contains a single JUnit test for every exercise.<br>
 In scope of the exercise open the used class in this test and implement the places marked with TODO.<br>
-Exercise can be found in BasicChatService.java in exercise branch.<br>
+Exercise can be found in BasicChatService.java in training branch.<br>
 Solution can be found in BasicChatService.java in master branch.
 
 ## Exercise 2: Send question to LLM using a System Prompt
-Exercise can be found in SystemPromptChatService.java in exercise branch.<br>
+Exercise can be found in SystemPromptChatService.java in training branch.<br>
 Solution can be found in SystemPromptChatService.java in master branch.
 
 ## Exercise 3: Have a chat with the LLM, so that previous messages are considered
-Exercise can be found in MemoryChatService.java in exercise branch.<br>
+Exercise can be found in MemoryChatService.java in training branch.<br>
 Solution can be found in MemoryChatService.java in master branch.
 
 ## Exercise 4: Use LLM to parse a text into an instance of a class
-Exercise can be found in ParsingChatService.java in exercise branch.<br>
+Exercise can be found in ParsingChatService.java in training branch.<br>
 Solution can be found in ParsingChatService.java in master branch.
 
 ## Exercise 5: Send question to LLM, which uses a tool (existing backend functionality)
-Exercise can be found in ToolChatService.java in exercise branch.<br>
+Exercise can be found in ToolChatService.java in training branch.<br>
 Solving this exercise with Ollama and a local LLM like llama3.2 is way harder than using GPT 4o-mini.<br>
 With llama3.2 you will need tool integration and fine-tuning of system prompt.<br>
 Solution can be found in ToolChatService.java in master branch.
+
+## Exercise 6: Build a RAG-Chat using a Vector Database with Embeddings Model
+Have a look in application.properties for "embedding", this is required to get an embedding model, which calculates vector representations of text.<br>
+Dependency spring-ai-advisors-vector-store add Vector Store classes to this project.<br> 
+Exercise can be found in RagChatService.java in training branch.<br>
+Solution can be found in RagChatService.java in master branch.
 
 ## MCP Exercise: Extend GitHub Copilot with Jira-ID generation by using MCP
 Define a tool, which is offered by this Spring Boot application acting as MCP Server.<br>

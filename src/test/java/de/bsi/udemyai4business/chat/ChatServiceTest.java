@@ -45,20 +45,6 @@ class ChatServiceTest {
 
     @Disabled
     @Test
-    void chatWithRag(@Autowired RagChatService ragChat) {
-        var question = "Was ist die Hauptstadt von Deutschland?";
-        var answer = ragChat.chat(question);
-        checkChat(question, answer);
-        assertTrue(answer.contains("Darmstadt"));
-
-        var question2 = "Wie groß ist Deutschlands größter Berg?";
-        var answer2 = ragChat.chat(question2);
-        checkChat(question2, answer2);
-        assertTrue(answer2.contains("9001"));
-    }
-
-    @Disabled
-    @Test
     void chatWithMemory(@Autowired MemoryChatService aiChat) {
         var name = "Rumpelstilzchen";
 
@@ -120,6 +106,20 @@ class ChatServiceTest {
         checkChat(question, answer);
 
         assertEquals("g€h€_mn_s", answer.getEncryptedText());
+    }
+
+    @Disabled
+    @Test
+    void chatWithRag(@Autowired RagChatService ragChat) {
+        var question = "Was ist die Hauptstadt von Deutschland?";
+        var answer = ragChat.chat(question);
+        checkChat(question, answer);
+        assertTrue(answer.contains("Darmstadt"));
+
+        var question2 = "Wie groß ist Deutschlands größter Berg?";
+        var answer2 = ragChat.chat(question2);
+        checkChat(question2, answer2);
+        assertTrue(answer2.contains("9001"));
     }
 
     private void checkChat(String userMessage, Object answer) {
